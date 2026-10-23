@@ -5,6 +5,10 @@ Run from the repository root: python3 tools/build_home.py .
 Only the languages in T are built. es/ and de/ wait until the English page is approved;
 then their texts are added here, translated from the approved English.
 
+Demo: each language has its own book page and English word (page, word, pos, gloss, tr, caption).
+Pick a word whose everyday meaning readers of that language know, used in another meaning in a
+public-domain book; it doesn't have to be the same word for every language.
+
 Copy rule: describe what the reader feels and gets, not how the app works. Don't name
 algorithms, review modes, thresholds, word lists or AI models.
 """
@@ -15,7 +19,7 @@ ROOT = Path(sys.argv[1])
 SITE = "https://pagelex.app"
 
 # Public domain: Lewis Carroll, "Alice's Adventures in Wonderland" (1865), chapter 1.
-PAGE = (
+ALICE_PAGE = (
     '<p>Alice was <span class="w mastered">beginning</span> to get very tired of sitting by her sister on the '
     '<span class="w new tapped">bank</span>, and of having nothing to do: once or twice she had '
     '<span class="w new">peeped</span> into the book her sister was reading, but it had no pictures or '
@@ -37,6 +41,7 @@ T = {
         lead="Snap a page, and PageLex shows what you know, what you're learning and what's new, right on the page. One tap gives you the meaning the author meant, in your language.",
         badge_small="Coming to the", badge="App Store · 2027", note="iPhone · iOS 27",
         demo_label="Example: a book page with colored words and the card for the tapped word",
+        page=ALICE_PAGE, word="bank", pos="noun", gloss="Here: the side of a river, not a place for money.",
         tr="orilla", tr_lang="Spanish",
         caption="Everyone knows “bank” as a place for money. Here Alice sits on the bank of a river, and PageLex knows the difference.",
         magic_h="Reading, with a little magic",
@@ -77,6 +82,7 @@ T = {
         lead="Сфотографуйте сторінку, і PageLex покаже прямо на ній, що ви вже знаєте, що вчите і що бачите вперше. Один дотик дає значення, яке мав на увазі автор, вашою мовою.",
         badge_small="Незабаром в", badge="App Store · 2027", note="iPhone · iOS 27",
         demo_label="Приклад: сторінка книжки з кольоровими словами і картка слова, якого торкнулися",
+        page=ALICE_PAGE, word="bank", pos="noun", gloss="Here: the side of a river, not a place for money.",
         tr="берег", tr_lang="українська",
         caption="Усі знають «bank» як банк. Але тут Аліса сидить на березі річки, і PageLex це розуміє.",
         magic_h="Читання з дрібкою магії",
@@ -179,12 +185,12 @@ def page(code):
     </div>
     <figure class="demo" aria-label="{esc(t["demo_label"])}">
       <div class="paper" lang="en">
-        {PAGE}
+        {t["page"]}
       </div>
       <div class="card" aria-hidden="true">
-        <div class="head"><span class="word" lang="en">bank</span><span class="pos" lang="en">noun</span></div>
+        <div class="head"><span class="word" lang="en">{esc(t["word"])}</span><span class="pos" lang="en">{esc(t["pos"])}</span></div>
         <p class="tr">{esc(t["tr"])}<span>{esc(t["tr_lang"])}</span></p>
-        <p class="why" lang="en">Here: the side of a river, not a place for money.</p>
+        <p class="why" lang="en">{esc(t["gloss"])}</p>
       </div>
       <figcaption>{esc(t["caption"])}</figcaption>
     </figure>
