@@ -2,8 +2,7 @@
 
 Run from the repository root: python3 tools/build_home.py .
 
-Only the languages in T are built. es/ and de/ wait until the English page is approved;
-then their texts are added here, translated from the approved English.
+Builds every language in T: en, uk, es, de. Spanish and German texts are AI-translated from English.
 
 Demo: each language has its own book page and English word (page, word, pos, gloss, tr, caption).
 Pick a word whose everyday meaning readers of that language know, used in another meaning in a
@@ -115,6 +114,110 @@ T = {
         support="Підтримка", follow="Ми в мережі",
     ),
 }
+
+PP_WORDS = {
+    "universally": "learning", "acknowledged": "mastered", "single": "new", "possession": "learning",
+    "fortune": "new", "want": "learning", "neighbourhood": "mastered", "rightful": "new", "property": "mastered",
+}
+
+
+def pp_page(tapped):
+    """Public domain: Jane Austen, "Pride and Prejudice" (1813), chapter 1. `tapped` gets the tap outline."""
+    def w(word):
+        cls = PP_WORDS[word] + (" tapped" if word == tapped else "")
+        return f'<span class="w {cls}">{word}</span>'
+    return (
+        f'<p>It is a truth {w("universally")} {w("acknowledged")}, that a {w("single")} man in '
+        f'{w("possession")} of a good {w("fortune")}, must be in {w("want")} of a wife.</p>'
+        f'<p>However little known the feelings or views of such a man may be on his first entering a '
+        f'{w("neighbourhood")}, this truth is so well fixed in the minds of the surrounding families, that he '
+        f'is considered the {w("rightful")} {w("property")} of some one or other of their daughters.</p>'
+    )
+
+
+T["es"] = dict(
+    path="/es/", name="Español", short="ES",
+    title="PageLex: lee libros en papel en inglés y mira cómo se iluminan las palabras",
+    desc="Haz una foto de una página de un libro en inglés y mira cómo se iluminan las palabras: las que conoces, las que estás aprendiendo y las nuevas. Toca una para ver el significado que quiso el autor. App para iPhone, llega en 2027.",
+    eyebrow="Para quien lee en inglés y aprende el idioma",
+    h1="Lee libros en papel en inglés. Mira cómo se iluminan las palabras.",
+    lead="Haz una foto de la página y PageLex te muestra, sobre la misma página, lo que ya sabes, lo que estás aprendiendo y lo nuevo. Un toque te da el significado que quiso el autor, en tu idioma.",
+    badge_small="Llega al", badge="App Store · 2027", note="iPhone · iOS 27",
+    demo_label="Ejemplo: una página de libro con palabras de colores y la ficha de la palabra tocada",
+    page=pp_page("single"), word="single", pos="adjective", gloss="Here: not married, not “only one”.",
+    tr="soltero", tr_lang="español",
+    caption="Todos conocen «single» como «único». Aquí significa «soltero», y PageLex lo entiende.",
+    magic_h="Leer, con un poco de magia",
+    magic=[
+        ("La página se ilumina", "Haz una foto y mira cómo cambia: palabras nuevas, palabras que estás aprendiendo y palabras que ya dominas. Todo lo demás ya es tuyo."),
+        ("El significado que quiso el autor", "Toca una palabra y obtén la traducción que encaja en esta misma frase, no una larga lista de diccionario."),
+        ("Palabras que se quedan contigo", "Cada palabra que tocas vuelve justo en el momento adecuado, con la frase de tu libro, hasta que es tuya de verdad."),
+    ],
+    legend=[("new", "Nueva"), ("learning", "Aprendiendo"), ("mastered", "Dominada"), ("", "Conocida: sin color")],
+    daily_h="Unos minutos al día",
+    daily_lead="PageLex te avisa cuando toca repasar, para que las palabras nuevas no se escapen. Repasos cortos, siempre con la frase donde encontraste la palabra.",
+    progress_h="Tu progreso, sobre el papel",
+    progress_lead="Cada página te dice cuánto entendiste. Página a página se iluminan menos palabras, porque ahora ya las conoces.",
+    priv_h="Todo se queda en tu iPhone",
+    priv_lead="Muchas apps envían tus fotos a la nube. PageLex no.",
+    priv=[
+        ("Sin cuenta", "Sin registro ni inicio de sesión. Abre la app y escanea."),
+        ("Sin analítica", "Ni en la app ni en esta web, y sin cookies."),
+        ("Funciona sin conexión", "Lee y repasa donde quieras, incluso en un avión, una vez descargado tu idioma."),
+        ("Las fotos se quedan contigo", "Las fotos de las páginas nunca salen de tu iPhone y se borran tras cada escaneo."),
+    ],
+    faq_h="Preguntas",
+    faq=[
+        ("¿En qué iPhone funciona?", "En cualquier iPhone con iOS 27."),
+        ("¿Qué idiomas?", "Lees en inglés. Las traducciones llegan en unos 20 idiomas, entre ellos español, alemán y ucraniano. La app está en inglés."),
+        ("¿También ebooks?", "PageLex está pensada para libros en papel, pero una captura de pantalla de un ebook también funciona."),
+        ("¿Cuánto cuesta?", "PageLex es una suscripción con prueba gratuita. Los precios estarán en el App Store en el lanzamiento."),
+        ("¿Cuándo puedo probarla?", "PageLex llega al App Store en 2027. Síguenos en Instagram o YouTube para enterarte primero."),
+    ],
+    support="Soporte", follow="Síguenos",
+)
+
+T["de"] = dict(
+    path="/de/", name="Deutsch", short="DE",
+    title="PageLex: lies gedruckte Bücher auf Englisch und sieh die Wörter aufleuchten",
+    desc="Fotografiere eine Seite eines englischen Buchs und sieh zu, wie die Wörter aufleuchten: die bekannten, die, die du gerade lernst, und die neuen. Tippe ein Wort an für die Bedeutung, die der Autor meinte. iPhone-App, kommt 2027.",
+    eyebrow="Für alle, die auf Englisch lesen und die Sprache lernen",
+    h1="Lies gedruckte Bücher auf Englisch. Sieh die Wörter aufleuchten.",
+    lead="Fotografiere eine Seite, und PageLex zeigt dir direkt darauf, was du schon kennst, was du gerade lernst und was neu ist. Ein Tippen gibt dir die Bedeutung, die der Autor meinte, in deiner Sprache.",
+    badge_small="Bald im", badge="App Store · 2027", note="iPhone · iOS 27",
+    demo_label="Beispiel: eine Buchseite mit farbigen Wörtern und der Karte zum angetippten Wort",
+    page=pp_page("fortune"), word="fortune", pos="noun", gloss="Here: a lot of money, not luck.",
+    tr="Vermögen", tr_lang="Deutsch",
+    caption="„Fortune“ klingt nach Glück. Hier ist es ein großes Vermögen, und PageLex versteht das.",
+    magic_h="Lesen, mit ein bisschen Magie",
+    magic=[
+        ("Deine Seite leuchtet auf", "Fotografiere eine Seite und sieh zu, wie sie sich verändert: neue Wörter, Wörter, die du lernst, und Wörter, die du sicher kannst. Alles andere kennst du schon."),
+        ("Die Bedeutung, die der Autor meinte", "Tippe ein Wort an und erhalte die Übersetzung, die genau zu diesem Satz passt, keine lange Wörterbuchliste."),
+        ("Wörter, die bleiben", "Jedes angetippte Wort kommt genau im richtigen Moment zurück, mit dem Satz aus deinem Buch, bis es wirklich dir gehört."),
+    ],
+    legend=[("new", "Neu"), ("learning", "Lernen"), ("mastered", "Sicher"), ("", "Bekannt: ohne Farbe")],
+    daily_h="Ein paar Minuten am Tag",
+    daily_lead="PageLex erinnert dich, wenn es Zeit ist, damit dir neue Wörter nicht entwischen. Kurze Wiederholungen, immer mit dem Satz, in dem du das Wort getroffen hast.",
+    progress_h="Dein Fortschritt, auf Papier",
+    progress_lead="Jede Seite zeigt dir, wie viel du verstanden hast. Seite für Seite leuchten weniger Wörter auf, weil du sie jetzt kennst.",
+    priv_h="Alles bleibt auf deinem iPhone",
+    priv_lead="Viele Apps schicken deine Fotos in die Cloud. PageLex nicht.",
+    priv=[
+        ("Kein Konto", "Keine Registrierung, keine Anmeldung. App öffnen und scannen."),
+        ("Keine Analyse", "Weder in der App noch auf dieser Website, und keine Cookies."),
+        ("Funktioniert offline", "Lies und wiederhole überall, sogar im Flugzeug, sobald deine Sprache geladen ist."),
+        ("Fotos bleiben bei dir", "Seitenfotos verlassen nie dein iPhone und werden nach jedem Scan gelöscht."),
+    ],
+    faq_h="Fragen",
+    faq=[
+        ("Auf welchen iPhones?", "Auf jedem iPhone mit iOS 27."),
+        ("Welche Sprachen?", "Du liest auf Englisch. Übersetzungen gibt es in etwa 20 Sprachen, darunter Deutsch, Spanisch und Ukrainisch. Die App selbst ist auf Englisch."),
+        ("Auch E-Books?", "PageLex ist für gedruckte Bücher gemacht, aber ein Screenshot einer E-Book-Seite funktioniert auch."),
+        ("Was kostet es?", "PageLex ist ein Abo mit kostenlosem Testzeitraum. Die Preise stehen zum Start im App Store."),
+        ("Wann kann ich es ausprobieren?", "PageLex kommt 2027 in den App Store. Folge uns auf Instagram oder YouTube, um es als Erste zu erfahren."),
+    ],
+    support="Support", follow="Folgen",
+)
 
 
 def esc(s):
