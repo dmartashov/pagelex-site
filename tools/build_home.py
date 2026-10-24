@@ -38,7 +38,7 @@ T = {
         eyebrow="For readers learning English",
         h1="Read paper books in English. Watch the words light up.",
         lead="Snap a page, and PageLex shows what you know, what you're learning and what's new, right on the page. One tap gives you the meaning the author meant, in your language.",
-        badge_small="Coming to the", badge="App Store · 2027", note="iPhone · iOS 27",
+        launch="Coming to the App Store in 2027", note="iPhone · iOS 27",
         demo_label="Example: a book page with colored words and the card for the tapped word",
         page=ALICE_PAGE, word="bank", pos="noun", gloss="Here: the side of a river, not a place for money.",
         tr="orilla", tr_lang="Spanish",
@@ -79,7 +79,7 @@ T = {
         eyebrow="Для тих, хто читає англійською й вивчає мову",
         h1="Читайте паперові книжки англійською. Слова засвітяться самі.",
         lead="Сфотографуйте сторінку, і PageLex покаже прямо на ній, що ви вже знаєте, що вчите і що бачите вперше. Один дотик дає значення, яке мав на увазі автор, вашою мовою.",
-        badge_small="Незабаром в", badge="App Store · 2027", note="iPhone · iOS 27",
+        launch="З'явиться в App Store у 2027 році", note="iPhone · iOS 27",
         demo_label="Приклад: сторінка книжки з кольоровими словами і картка слова, якого торкнулися",
         page=ALICE_PAGE, word="bank", pos="noun", gloss="Here: the side of a river, not a place for money.",
         tr="берег", tr_lang="українська",
@@ -142,7 +142,7 @@ T["es"] = dict(
     eyebrow="Para quien lee en inglés y aprende el idioma",
     h1="Lee libros en papel en inglés. Mira cómo se iluminan las palabras.",
     lead="Haz una foto de la página y PageLex te muestra, sobre la misma página, lo que ya sabes, lo que estás aprendiendo y lo nuevo. Un toque te da el significado que quiso el autor, en tu idioma.",
-    badge_small="Llega al", badge="App Store · 2027", note="iPhone · iOS 27",
+    launch="Llega al App Store en 2027", note="iPhone · iOS 27",
     demo_label="Ejemplo: una página de libro con palabras de colores y la ficha de la palabra tocada",
     page=pp_page("single"), word="single", pos="adjective", gloss="Here: not married, not “only one”.",
     tr="soltero", tr_lang="español",
@@ -184,7 +184,7 @@ T["de"] = dict(
     eyebrow="Für alle, die auf Englisch lesen und die Sprache lernen",
     h1="Lies gedruckte Bücher auf Englisch. Sieh die Wörter aufleuchten.",
     lead="Fotografiere eine Seite, und PageLex zeigt dir direkt darauf, was du schon kennst, was du gerade lernst und was neu ist. Ein Tippen gibt dir die Bedeutung, die der Autor meinte, in deiner Sprache.",
-    badge_small="Bald im", badge="App Store · 2027", note="iPhone · iOS 27",
+    launch="Kommt 2027 in den App Store", note="iPhone · iOS 27",
     demo_label="Beispiel: eine Buchseite mit farbigen Wörtern und der Karte zum angetippten Wort",
     page=pp_page("fortune"), word="fortune", pos="noun", gloss="Here: a lot of money, not luck.",
     tr="Vermögen", tr_lang="Deutsch",
@@ -282,7 +282,7 @@ def page(code):
       <h1>{esc(t["h1"])}</h1>
       <p class="lead">{esc(t["lead"])}</p>
       <div class="cta">
-        <span class="store-badge" role="note"><small>{esc(t["badge_small"])}</small><strong>{esc(t["badge"])}</strong></span>
+        <span class="launch">{esc(t["launch"])}</span>
         <span class="note">{esc(t["note"])}</span>
       </div>
     </div>
