@@ -158,6 +158,29 @@ h1 {
 
 .cta .note { color: var(--muted); font-size: 0.95rem; }
 
+/* Beta signup: a mailto link styled as a button. The address stays in the text for people without a mail app. */
+.beta { margin-top: 20px; }
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn:hover { filter: brightness(1.08); text-decoration: none; }
+
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.beta-note { margin: 10px 0 0; color: var(--muted); font-size: 0.95rem; max-width: 34em; }
+
+@media (prefers-color-scheme: dark) {
+  .btn { color: #111214; }
+}
+
 /* Demo: a paper page with colored words and a card */
 
 .demo { position: relative; margin: 0; }

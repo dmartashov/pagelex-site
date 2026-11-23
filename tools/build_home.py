@@ -13,6 +13,7 @@ algorithms, review modes, thresholds, word lists or AI models.
 """
 import sys
 from pathlib import Path
+from urllib.parse import quote
 
 ROOT = Path(sys.argv[1])
 SITE = "https://pagelex.app"
@@ -39,6 +40,9 @@ T = {
         h1="Read paper books in English. Watch the words light up.",
         lead="Snap a page, and PageLex shows what you know, what you're learning and what's new, right on the page. One tap gives you the meaning the author meant, in your language.",
         launch="Coming to the App Store in 2027", note="iPhone · iOS 27",
+        beta_btn="Join the beta",
+        beta_note="Tap to email us at support@pagelex.app, and we'll write when the beta opens. No form, no account: just an email.",
+        beta_body="Hi! I'd like to join the PageLex beta.\n\nMy iPhone model:\n",
         demo_label="Example: a book page with colored words and the card for the tapped word",
         page=ALICE_PAGE, word="bank", pos="noun", gloss="Here: the side of a river, not a place for money.",
         tr="orilla", tr_lang="Spanish",
@@ -68,7 +72,7 @@ T = {
             ("Which languages?", "You read in English. Translations come in about 20 languages, including Ukrainian, Spanish and German. The app itself is in English."),
             ("Ebooks too?", "PageLex is made for paper books, but a screenshot of an ebook page works too."),
             ("How much does it cost?", "PageLex is a subscription with a free trial. Prices will be in the App Store at launch."),
-            ("When can I try it?", "PageLex comes to the App Store in 2027. Follow us on Instagram or YouTube to hear first."),
+            ("When can I try it?", "PageLex comes to the App Store in 2027. Want to try it earlier? Join the beta with the button at the top of this page, or follow us on Instagram or YouTube to hear first."),
         ],
         support="Support", follow="Follow",
     ),
@@ -80,6 +84,9 @@ T = {
         h1="Читайте паперові книжки англійською. Слова засвітяться самі.",
         lead="Сфотографуйте сторінку, і PageLex покаже прямо на ній, що ви вже знаєте, що вчите і що бачите вперше. Один дотик дає значення, яке мав на увазі автор, вашою мовою.",
         launch="З'явиться в App Store у 2027 році", note="iPhone · iOS 27",
+        beta_btn="Долучитися до бета-тесту",
+        beta_note="Натисніть, щоб написати нам на support@pagelex.app, і ми відповімо, коли бета відкриється. Без форм і акаунтів: лише лист.",
+        beta_body="Привіт! Хочу долучитися до бета-тесту PageLex.\n\nМодель мого iPhone:\n",
         demo_label="Приклад: сторінка книжки з кольоровими словами і картка слова, якого торкнулися",
         page=ALICE_PAGE, word="bank", pos="noun", gloss="Here: the side of a river, not a place for money.",
         tr="берег", tr_lang="українська",
@@ -109,7 +116,7 @@ T = {
             ("Які мови?", "Ви читаєте англійською. Переклад є приблизно 20 мовами, серед них українська, іспанська й німецька. Сам застосунок англійською."),
             ("А електронні книжки?", "PageLex створений для паперових книжок, але скриншот сторінки електронної книжки теж підійде."),
             ("Скільки коштує?", "PageLex працює за підпискою з безкоштовним пробним періодом. Ціни будуть в App Store на старті."),
-            ("Коли можна спробувати?", "PageLex з'явиться в App Store у 2027 році. Стежте за нами в Instagram або YouTube, щоб дізнатися першими."),
+            ("Коли можна спробувати?", "PageLex з'явиться в App Store у 2027 році. Хочете спробувати раніше? Долучайтеся до бета-тесту кнопкою вгорі сторінки або стежте за нами в Instagram чи YouTube, щоб дізнатися першими."),
         ],
         support="Підтримка", follow="Ми в мережі",
     ),
@@ -143,6 +150,9 @@ T["es"] = dict(
     h1="Lee libros en papel en inglés. Mira cómo se iluminan las palabras.",
     lead="Haz una foto de la página y PageLex te muestra, sobre la misma página, lo que ya sabes, lo que estás aprendiendo y lo nuevo. Un toque te da el significado que quiso el autor, en tu idioma.",
     launch="Llega al App Store en 2027", note="iPhone · iOS 27",
+    beta_btn="Únete a la beta",
+    beta_note="Pulsa para escribirnos a support@pagelex.app y te avisaremos cuando se abra la beta. Sin formularios ni cuentas: solo un correo.",
+    beta_body="¡Hola! Quiero unirme a la beta de PageLex.\n\nModelo de mi iPhone:\n",
     demo_label="Ejemplo: una página de libro con palabras de colores y la ficha de la palabra tocada",
     page=pp_page("single"), word="single", pos="adjective", gloss="Here: not married, not “only one”.",
     tr="soltero", tr_lang="español",
@@ -172,7 +182,7 @@ T["es"] = dict(
         ("¿Qué idiomas?", "Lees en inglés. Las traducciones llegan en unos 20 idiomas, entre ellos español, alemán y ucraniano. La app está en inglés."),
         ("¿También ebooks?", "PageLex está pensada para libros en papel, pero una captura de pantalla de un ebook también funciona."),
         ("¿Cuánto cuesta?", "PageLex es una suscripción con prueba gratuita. Los precios estarán en el App Store en el lanzamiento."),
-        ("¿Cuándo puedo probarla?", "PageLex llega al App Store en 2027. Síguenos en Instagram o YouTube para enterarte primero."),
+        ("¿Cuándo puedo probarla?", "PageLex llega al App Store en 2027. ¿Quieres probarla antes? Únete a la beta con el botón de arriba de esta página o síguenos en Instagram o YouTube para enterarte primero."),
     ],
     support="Soporte", follow="Síguenos",
 )
@@ -185,6 +195,9 @@ T["de"] = dict(
     h1="Lies gedruckte Bücher auf Englisch. Sieh die Wörter aufleuchten.",
     lead="Fotografiere eine Seite, und PageLex zeigt dir direkt darauf, was du schon kennst, was du gerade lernst und was neu ist. Ein Tippen gibt dir die Bedeutung, die der Autor meinte, in deiner Sprache.",
     launch="Kommt 2027 in den App Store", note="iPhone · iOS 27",
+    beta_btn="An der Beta teilnehmen",
+    beta_note="Tippe, um uns an support@pagelex.app zu schreiben, wir melden uns, sobald die Beta startet. Kein Formular, kein Konto: nur eine E-Mail.",
+    beta_body="Hallo! Ich möchte an der PageLex-Beta teilnehmen.\n\nMein iPhone-Modell:\n",
     demo_label="Beispiel: eine Buchseite mit farbigen Wörtern und der Karte zum angetippten Wort",
     page=pp_page("fortune"), word="fortune", pos="noun", gloss="Here: a lot of money, not luck.",
     tr="Vermögen", tr_lang="Deutsch",
@@ -214,7 +227,7 @@ T["de"] = dict(
         ("Welche Sprachen?", "Du liest auf Englisch. Übersetzungen gibt es in etwa 20 Sprachen, darunter Deutsch, Spanisch und Ukrainisch. Die App selbst ist auf Englisch."),
         ("Auch E-Books?", "PageLex ist für gedruckte Bücher gemacht, aber ein Screenshot einer E-Book-Seite funktioniert auch."),
         ("Was kostet es?", "PageLex ist ein Abo mit kostenlosem Testzeitraum. Die Preise stehen zum Start im App Store."),
-        ("Wann kann ich es ausprobieren?", "PageLex kommt 2027 in den App Store. Folge uns auf Instagram oder YouTube, um es als Erste zu erfahren."),
+        ("Wann kann ich es ausprobieren?", "PageLex kommt 2027 in den App Store. Du willst es früher testen? Nimm mit dem Button oben auf dieser Seite an der Beta teil oder folge uns auf Instagram oder YouTube, um es als Erste zu erfahren."),
     ],
     support="Support", follow="Folgen",
 )
@@ -222,6 +235,11 @@ T["de"] = dict(
 
 def esc(s):
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
+
+
+def beta_href(t):
+    """The beta signup is a mailto link: subject "PageLex beta", a short pre-filled body in the page's language."""
+    return "mailto:support@pagelex.app?subject=" + quote("PageLex beta") + "&body=" + quote(t["beta_body"])
 
 
 def page(code):
@@ -284,6 +302,10 @@ def page(code):
       <div class="cta">
         <span class="launch">{esc(t["launch"])}</span>
         <span class="note">{esc(t["note"])}</span>
+      </div>
+      <div class="beta">
+        <a class="btn" href="{esc(beta_href(t))}">{esc(t["beta_btn"])}</a>
+        <p class="beta-note">{esc(t["beta_note"])}</p>
       </div>
     </div>
     <figure class="demo" aria-label="{esc(t["demo_label"])}">
