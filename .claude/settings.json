@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "blockWritesOutsideWorkingDirectories": true,
+    "allow": [
+      "Read(~/Desktop/MyApps/PageLex/docs/**)",
+      "Read(~/Desktop/MyApps/PageLex/Claude outputs/marketing/**)"
+    ],
+    "ask": [
+      "Edit(/CLAUDE.md)",
+      "Edit(/.claude/**)",
+      "Edit(/CNAME)"
+    ],
+    "deny": [
+      "Bash(git push:*)",
+      "Bash(git pull:*)",
+      "Bash(git merge:*)",
+      "Bash(git rebase:*)",
+      "Bash(git reset:*)",
+      "Bash(git restore:*)",
+      "Bash(git checkout:*)",
+      "Bash(git switch:*)",
+      "Bash(git stash:*)",
+      "Bash(git tag:*)",
+      "Bash(git branch:*)",
+      "Bash(git clean:*)",
+      "Bash(git worktree:*)",
+      "Bash(git commit --amend:*)",
+      "Bash(git add -A:*)",
+      "Bash(git add --all:*)",
+      "Bash(git add .:*)",
+      "Bash(git commit -a:*)",
+      "Bash(git commit -am:*)",
+      "Bash(git commit --all:*)"
+    ]
+  }
+}
