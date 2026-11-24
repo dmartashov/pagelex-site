@@ -24,7 +24,7 @@ Where `~/.claude/CLAUDE.md` differs from this file, this file wins. Its Part 2 (
 
 ## 4. Checks (report each output)
 1. If `tools/build_home.py` changed: `python3 tools/build_home.py .` ran, and running it again changes nothing (`git status --short` the same before and after the second run).
-2. No outside scripts, styles, fonts or frames: `grep -rnE '<script|<iframe|@import|url\(https?:' --include='*.html' --include='*.css' .` prints nothing, and `grep -rnE '<(link|img)[^>]*(src|href)="https?://' --include='*.html' .` prints nothing. Plain links (`<a href=…>`, `mailto:`) are fine.
+2. No outside scripts, styles, fonts or frames: `grep -rnE '<script|<iframe|@import|url\(https?:' --include='*.html' --include='*.css' .` prints nothing, and `grep -rnE '<(link|img)[^>]*(src|href)="https?://' --include='*.html' . | grep -v 'href="https://pagelex.app/'` prints nothing (the pages' own canonical and language links point at pagelex.app). Plain links (`<a href=…>`, `mailto:`) are fine.
 3. No mechanics on the pages (marketing decision 3: what the reader gets, not how the app works): `grep -rniE 'FSRS|WordNet|Foundation Models|algorithm|LLM' --include='*.html' .` prints nothing.
 4. No App Store badge before release (Apple licenses it only for apps available for download): no badge image or badge-styled link; plain launch text only.
 5. `cat CNAME` prints `pagelex.app`; `git status --short` lists only the files the task names.

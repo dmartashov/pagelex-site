@@ -72,7 +72,7 @@ T = {
             ("Which languages?", "You read in English. Translations come in about 20 languages, including Ukrainian, Spanish and German. The app itself is in English."),
             ("Ebooks too?", "PageLex is made for paper books, but a screenshot of an ebook page works too."),
             ("How much does it cost?", "PageLex is a subscription with a free trial. Prices will be in the App Store at launch."),
-            ("When can I try it?", "PageLex comes to the App Store in 2027. Want to try it earlier? Join the beta with the button at the top of this page, or follow us on Instagram or YouTube to hear first."),
+            ("When can I try it?", "PageLex comes to the App Store in 2027. Want to try it earlier? Join the beta with the button at the top of this page, or follow us on Instagram, YouTube or TikTok to hear first."),
         ],
         support="Support", follow="Follow",
     ),
@@ -116,7 +116,7 @@ T = {
             ("Які мови?", "Ви читаєте англійською. Переклад є приблизно 20 мовами, серед них українська, іспанська й німецька. Сам застосунок англійською."),
             ("А електронні книжки?", "PageLex створений для паперових книжок, але скриншот сторінки електронної книжки теж підійде."),
             ("Скільки коштує?", "PageLex працює за підпискою з безкоштовним пробним періодом. Ціни будуть в App Store на старті."),
-            ("Коли можна спробувати?", "PageLex з'явиться в App Store у 2027 році. Хочете спробувати раніше? Долучайтеся до бета-тесту кнопкою вгорі сторінки або стежте за нами в Instagram чи YouTube, щоб дізнатися першими."),
+            ("Коли можна спробувати?", "PageLex з'явиться в App Store у 2027 році. Хочете спробувати раніше? Долучайтеся до бета-тесту кнопкою вгорі сторінки або стежте за нами в Instagram, YouTube чи TikTok, щоб дізнатися першими."),
         ],
         support="Підтримка", follow="Ми в мережі",
     ),
@@ -182,7 +182,7 @@ T["es"] = dict(
         ("¿Qué idiomas?", "Lees en inglés. Las traducciones llegan en unos 20 idiomas, entre ellos español, alemán y ucraniano. La app está en inglés."),
         ("¿También ebooks?", "PageLex está pensada para libros en papel, pero una captura de pantalla de un ebook también funciona."),
         ("¿Cuánto cuesta?", "PageLex es una suscripción con prueba gratuita. Los precios estarán en el App Store en el lanzamiento."),
-        ("¿Cuándo puedo probarla?", "PageLex llega al App Store en 2027. ¿Quieres probarla antes? Únete a la beta con el botón de arriba de esta página o síguenos en Instagram o YouTube para enterarte primero."),
+        ("¿Cuándo puedo probarla?", "PageLex llega al App Store en 2027. ¿Quieres probarla antes? Únete a la beta con el botón de arriba de esta página o síguenos en Instagram, YouTube o TikTok para enterarte primero."),
     ],
     support="Soporte", follow="Síguenos",
 )
@@ -227,7 +227,7 @@ T["de"] = dict(
         ("Welche Sprachen?", "Du liest auf Englisch. Übersetzungen gibt es in etwa 20 Sprachen, darunter Deutsch, Spanisch und Ukrainisch. Die App selbst ist auf Englisch."),
         ("Auch E-Books?", "PageLex ist für gedruckte Bücher gemacht, aber ein Screenshot einer E-Book-Seite funktioniert auch."),
         ("Was kostet es?", "PageLex ist ein Abo mit kostenlosem Testzeitraum. Die Preise stehen zum Start im App Store."),
-        ("Wann kann ich es ausprobieren?", "PageLex kommt 2027 in den App Store. Du willst es früher testen? Nimm mit dem Button oben auf dieser Seite an der Beta teil oder folge uns auf Instagram oder YouTube, um es als Erste zu erfahren."),
+        ("Wann kann ich es ausprobieren?", "PageLex kommt 2027 in den App Store. Du willst es früher testen? Nimm mit dem Button oben auf dieser Seite an der Beta teil oder folge uns auf Instagram, YouTube oder TikTok, um es als Erste zu erfahren."),
     ],
     support="Support", follow="Folgen",
 )
@@ -389,6 +389,7 @@ def page(code):
     <ul aria-label="{esc(t["follow"])}">
       <li><a href="https://www.instagram.com/pagelex.app/" rel="me">Instagram</a></li>
       <li><a href="https://www.youtube.com/@pagelex" rel="me">YouTube</a></li>
+      <li><a href="https://www.tiktok.com/@pagelex.app" rel="me">TikTok</a></li>
       <li>© 2026 PageLex</li>
     </ul>
   </div>

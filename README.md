@@ -8,11 +8,12 @@ The website of PageLex at https://pagelex.app, served by GitHub Pages from `main
 - `support/index.html`: the App Store Support URL.
 - `assets/`: the stylesheet and the icon.
 - `CNAME`: the custom domain. Don't delete it.
+- `_config.yml`: GitHub Pages builds the site with Jekyll; this file keeps `CLAUDE.md`, `README.md` and `tools/` out of the published site (they stay in the repository).
 
 The book pages in the demos are public domain: Lewis Carroll, "Alice's Adventures in Wonderland" (1865) for English and Ukrainian; Jane Austen, "Pride and Prejudice" (1813) for Spanish and German.
 
-## Status (23 Oct 2026)
+## Status (23 Nov 2026)
 
-This is the `draft` branch: it isn't published. `main` still has the placeholder page.
-- English, Ukrainian, Spanish and German (`/`, `/uk/`, `/es/`, `/de/`): ready for review. Spanish and German are AI-translated.
-- Before merging into `main`: check that `CNAME` is still there.
+`main` is live at https://pagelex.app: the home page in four languages, `/support/` and the beta signup (a `mailto:` link). Work happens on `draft`; Danil merges it into `main`.
+- Spanish and German texts are AI-translated: a speaker check is still open.
+- Before merging into `main`: check that `CNAME` and `_config.yml` are still there.
